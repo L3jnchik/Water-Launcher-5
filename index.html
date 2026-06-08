@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaterLauncher — Главная</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hero {
+            height: calc(80vh - 80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1c2541 0%, #0b132b 100%);
+        }
+        .hero h1 { font-size: 52px; margin-bottom: 20px; }
+        .hero p { font-size: 18px; color: #b5c2c9; max-width: 600px; margin-bottom: 35px; line-height: 1.6; }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #1c2541;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .card-icon { font-size: 40px; margin-bottom: 15px; }
+        .card h3 { margin-bottom: 10px; }
+        .card p { color: #b5c2c9; font-size: 14px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">WaterLauncher</a>
+        <nav>
+            <a href="index.html" class="active">Главная</a>
+            <a href="servers.html">Серверы</a>
+            <a href="donate.html">Донат</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Добро пожаловать в <span>WaterLauncher</span></h1>
+        <p>Новое поколение игровых серверов с уникальной водной экосистемой. Быстрая загрузка и стабильный FPS.</p>
+        <a href="#" class="btn">Скачать лаунчер</a>
+    </section>
+
+    <main class="container">
+        <h2 class="heading">Почему <span>мы?</span></h2>
+        <div class="features-grid">
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Быстрый запуск</h3>
+                <p>Оптимизированный клиент запустится за пару секунд даже на слабом компьютере.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Защита от читов</h3>
+                <p>Собственный встроенный античит обеспечивает максимально честную игру.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌊</div>
+                <h3>Стабильный пинг</h3>
+                <p>Наше оборудование находится в лучших дата-центрах для идеального соединения.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 WaterLauncher. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
