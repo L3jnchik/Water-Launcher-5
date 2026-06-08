@@ -5,67 +5,205 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WaterLauncher — Главная</title>
     <link rel="stylesheet" href="css/style.css">
-</style>
-</head>
-<body>
     <style>
+        /* Главный баннер (Hero в стиле GribLand) */
         .hero {
-            height: calc(85vh - 80px);
+            min-height: calc(100vh - 80px);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 40px 20px;
+            position: relative;
+            background: radial-gradient(circle at center, #111a30 0%, #060911 100%);
+            overflow: hidden;
         }
+
+        /* Анимированные водяные пузыри на фоне */
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -20px;
+            background: rgba(0, 240, 255, 0.15);
+            border-radius: 50%;
+            animation: floatUp 8s infinite ease-in;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-logo-sub {
+            font-size: 14px;
+            color: #00f0ff;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+        }
+
         .hero h1 { 
-            font-size: 64px; 
+            font-size: 56px; 
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 25px; 
-            letter-spacing: 1px;
-            line-height: 1.1;
-        }
-        .hero p { 
-            font-size: 20px; 
-            color: #a4b3c6; 
-            max-width: 650px; 
-            margin-bottom: 45px; 
-            line-height: 1.7; 
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: #131926;
-            padding: 45px 35px;
-            border-radius: 16px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.02);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-        .card:hover {
-            border-color: rgba(0, 240, 255, 0.3);
-            transform: translateY(-5px);
-        }
-        .card-icon { 
-            font-size: 46px; 
             margin-bottom: 20px; 
-            filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.4));
+            letter-spacing: -1px;
+            line-height: 1.0;
+            color: #ffffff;
         }
-        .card h3 { 
-            margin-bottom: 15px; 
-            font-size: 22px; 
+        .hero h1 span {
+            color: #00f0ff;
+            text-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+        }
+
+        .hero p { 
+            font-size: 16px; 
+            color: #8fa0b5; 
+            max-width: 600px; 
+            margin-bottom: 45px; 
+            line-height: 1.6; 
+        }
+
+        /* Статистика онлайн */
+        .total-online {
+            background: rgba(0, 240, 255, 0.07);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: #00f0ff;
+            margin-bottom: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
-        .card p { color: #a4b3c6; font-size: 15px; line-height: 1.6; }
-    </style>
+        .online-dot {
+            width: 8px;
+            height: 8px;
+            background: #00f0ff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00f0ff;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.4); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 1; }
+        }
 
+        /* Сетка GribLand (Новости + Сайдбар) */
+        .grib-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: -20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Блок новостей */
+        .news-container {
+            background: #111622;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .news-card {
+            background: #171e2e;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #00f0ff;
+            transition: transform 0.2s;
+        }
+        .news-card:hover { transform: translateX(5px); }
+        .news-date {
+            font-size: 11px;
+            color: #00f0ff;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .news-card h3 { font-size: 18px; margin-bottom: 10px; text-transform: uppercase; }
+        .news-card p { color: #8fa0b5; font-size: 14px; line-height: 1.5; }
+
+        /* Сайдбар */
+        .sidebar-panel {
+            background: #111622;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .panel-title {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+
+        .streamer-card {
+            background: #171e2e;
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.2s;
+        }
+        .streamer-avatar {
+            width: 40px;
+            height: 40px;
+            background: #00f0ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: #060911;
+            font-size: 16px;
+        }
+        .streamer-info h4 { font-size: 14px; margin-bottom: 2px; }
+        .streamer-info p { color: #ff4a4a; font-size: 11px; font-weight: 700; }
+
+        /* Адаптивность для телефонов */
+        @media (max-width: 992px) {
+            .grib-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 42px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
     <header>
         <a href="index.html" class="logo">WaterLauncher</a>
         <nav>
@@ -75,35 +213,75 @@
         </nav>
     </header>
 
+    <!-- Главный баннер -->
     <section class="hero">
-        <h1>Добро пожаловать в <span>WaterLauncher</span></h1>
-        <p>Новое поколение игровых серверов с уникальной водной экосистемой. Быстрая загрузка и стабильный FPS.</p>
-        <a href="#" class="btn">Скачать лаунчер</a>
+        <div class="bubbles">
+            <div class="bubble" style="left: 10%; width: 20px; height: 20px; animation-delay: 0s; animation-duration: 6s;"></div>
+            <div class="bubble" style="left: 30%; width: 12px; height: 12px; animation-delay: 2s; animation-duration: 8s;"></div>
+            <div class="bubble" style="left: 50%; width: 25px; height: 25px; animation-delay: 1s; animation-duration: 7s;"></div>
+            <div class="bubble" style="left: 75%; width: 15px; height: 15px; animation-delay: 3s; animation-duration: 6s;"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-logo-sub">Комплекс серверов</div>
+            <h1>Water<span>Launcher</span></h1>
+            
+            <div class="total-online">
+                <div class="online-dot"></div>
+                <span>1,248 игроков онлайн</span>
+            </div>
+
+            <p>Залетай в нашу водную тусовку! Мы — самые оптимизированные и технологичные сервера в Minecraft. Хватай лаунчер и начни свой путь прямо сейчас!</p>
+            <a href="#" class="btn" style="font-size: 16px; padding: 18px 45px;">Начать играть</a>
+        </div>
     </section>
 
+    <!-- Новости + Сайдбар -->
     <main class="container">
-        <h2 class="heading">Почему <span>мы?</span></h2>
-        <div class="features-grid">
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>Быстрый запуск</h3>
-                <p>Оптимизированный клиент запустится за пару секунд даже на слабом компьютере.</p>
+        <div class="grib-grid">
+            
+            <!-- Новости -->
+            <div class="news-container">
+                <h2 class="panel-title" style="font-size: 20px; margin-bottom: 20px;">Последние обновления</h2>
+                
+                <div class="news-card">
+                    <div class="news-date">Сегодня, 14:20</div>
+                    <h3>Глобальный Вайп и обновление OceanBlock</h3>
+                    <p>Мы полностью переработали генерацию водных миров, добавили более 50 новых кастомных механизмов и запустили масштабные конкурсы с призовым фондом в личной панели!</p>
+                </div>
+
+                <div class="news-card" style="border-left-color: #0077b6;">
+                    <div class="news-date">Вчера, 18:00</div>
+                    <h3>Летнее обновление лаунчера v2.4</h3>
+                    <p>Исправлены проблемы с авторизацией у некоторых провайдеров. Скорость загрузки игровых ассетов увеличена в 2.5 раза за счет интеграции новых контент-серверов.</p>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">🛡️</div>
-                <h3>Защита от читов</h3>
-                <p>Собственный встроенный античит обеспечивает максимально честную игру.</p>
+
+            <!-- Сайдбар -->
+            <div class="sidebar-panel">
+                <div>
+                    <h3 class="panel-title">Медиа партнеры</h3>
+                    <div class="streamer-card">
+                        <div class="streamer-avatar">W</div>
+                        <div class="streamer-info">
+                            <h4>Water_Man</h4>
+                            <p>• ПРЯМОЙ ЭФИР</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <h3 class="panel-title">Мы в соцсетях</h3>
+                    <a href="#" class="btn" style="width: 100%; text-align: center; background: #2775b6; box-shadow: 0 4px 0px #1a5282; margin-bottom: 12px; padding: 12px 5px;">Наша группа VK</a>
+                    <a href="#" class="btn" style="width: 100%; text-align: center; background: #5865F2; box-shadow: 0 4px 0px #3c46a6; padding: 12px 5px;">Сервер Discord</a>
+                </div>
             </div>
-            <div class="card">
-                <div class="card-icon">🌊</div>
-                <h3>Стабильный пинг</h3>
-                <p>Наше оборудование находится в лучших дата-центрах для идеального соединения.</p>
-            </div>
+
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 WaterLauncher. Все права защищены.</p>
+        <p>&copy; 2026 WaterLauncher. Проект не связан с Mojang AB.</p>
     </footer>
 
 </body>
