@@ -1,0 +1,106 @@
+/* Базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background: #0b132b;
+    color: #ffffff;
+    overflow-x: hidden;
+    padding-top: 80px; /* Отступ под фиксированную шапку */
+}
+
+/* Общая шапка (Header) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: rgba(11, 19, 43, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00b4d8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 25px;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+nav a:hover, nav a.active {
+    color: #00b4d8;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    background: #00b4d8;
+    color: #ffffff;
+    padding: 12px 35px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 180, 216, 0.5);
+}
+
+/* Секции */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.heading {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.heading span {
+    color: #00b4d8;
+}
+
+/* Общий подвал (Footer) */
+footer {
+    background: #080f21;
+    padding: 30px 10%;
+    text-align: center;
+    color: #6c757d;
+    font-size: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 60px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header { padding: 20px 5%; }
+    nav { display: none; } /* Скрыто для упрощения мобильной верстки */
+    .heading { font-size: 28px; }
+}
