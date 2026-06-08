@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaterLauncher — Наши Серверы</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .server-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .server-item {
+            background: #1c2541;
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 5px solid #00b4d8;
+        }
+        .server-info h3 { font-size: 22px; margin-bottom: 5px; }
+        .server-info p { color: #6c757d; font-size: 14px; }
+        .server-online { text-align: right; }
+        .online-count { font-weight: bold; color: #00b4d8; font-size: 18px; }
+        .progress-bar {
+            width: 150px;
+            height: 8px;
+            background: #0b132b;
+            border-radius: 4px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #00b4d8;
+            width: 65%; /* Пример заполненности */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">WaterLauncher</a>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="servers.html" class="active">Серверы</a>
+            <a href="donate.html">Донат</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="heading">Наши <span>Игровые Миры</span></h2>
+        
+        <div class="server-list">
+            <!-- Сервер 1 -->
+            <div class="server-item">
+                <div class="server-info">
+                    <h3>WaterSurvival #1</h3>
+                    <p>Классическое выживание с уникальными плагинами и экономикой</p>
+                </div>
+                <div class="server-online">
+                    <div class="online-count">145 / 200 игроков</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 72.5%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сервер 2 -->
+            <div class="server-item" style="border-left-color: #0077b6;">
+                <div class="server-info">
+                    <h3>OceanSkyBlock</h3>
+                    <p>Хардкорный остров посреди бескрайнего океана</p>
+                </div>
+                <div class="server-online">
+                    <div class="online-count">42 / 100 игроков</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 42%; background: #0077b6;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 WaterLauncher. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
