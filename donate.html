@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaterLauncher — Донат</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .donate-form {
+            background: #1c2541;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 0 auto 50px auto;
+            text-align: center;
+        }
+        .donate-form input {
+            width: 100%;
+            padding: 12px 20px;
+            background: #0b132b;
+            border: 1px solid rgba(0, 180, 216, 0.4);
+            border-radius: 25px;
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+        .donate-form input:focus { border-color: #00b4d8; }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+        .product-card {
+            background: #1c2541;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .product-card:hover { transform: scale(1.03); }
+        .product-name { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+        .product-price { font-size: 20px; color: #00b4d8; margin-bottom: 20px; font-weight: 600; }
+        .product-features { text-align: left; margin-bottom: 25px; color: #b5c2c9; font-size: 14px; list-style: none;}
+        .product-features li { margin-bottom: 8px; }
+        .product-features li::before { content: "• "; color: #00b4d8; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">WaterLauncher</a>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="servers.html">Серверы</a>
+            <a href="donate.html" class="active">Донат</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2 class="heading">Магазин <span>Привилегий</span></h2>
+
+        <!-- Форма покупки -->
+        <div class="donate-form">
+            <input type="text" placeholder="Введите ваш игровой никнейм" required>
+            <p style="color: #6c757d; font-size: 14px; margin-bottom: 15px;">Выберите товар ниже, ник зафиксируется автоматически</p>
+        </div>
+
+        <!-- Сетка товаров -->
+        <div class="shop-grid">
+            <!-- Товар 1 -->
+            <div class="product-card" style="border-top: 4px solid #00b4d8;">
+                <div class="product-name">VIP</div>
+                <div class="product-price">99 ₽ / мес</div>
+                <ul class="product-features">
+                    <li>Префикс [VIP] в чате</li>
+                    <li>Доступ к команде /kit vip</li>
+                    <li>Возможность летать (/fly)</li>
+                </ul>
+                <button class="btn" style="width: 100%;">Купить</button>
+            </div>
+
+            <!-- Товар 2 -->
+            <div class="product-card" style="border-top: 4px solid #0077b6;">
+                <div class="product-name">PREMIUM</div>
+                <div class="product-price">249 ₽ / мес</div>
+                <ul class="product-features">
+                    <li>Префикс [PREMIUM] в чате</li>
+                    <li>Доступ к команде /kit premium</li>
+                    <li>Все права VIP аккаунта</li>
+                    <li>Вход на заполненный сервер</li>
+                </ul>
+                <button class="btn" style="width: 100%;">Купить</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 WaterLauncher. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
