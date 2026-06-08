@@ -1,4 +1,4 @@
-/* Базовые настройки */
+/* Базовые настройки в стиле игровых хабов */
 * {
     margin: 0;
     padding: 0;
@@ -7,100 +7,119 @@
 }
 
 body {
-    background: #0b132b;
+    background-color: #0b0f19; /* Очень глубокий темный, почти черный */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 240, 255, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(0, 119, 182, 0.08) 0px, transparent 50%);
     color: #ffffff;
     overflow-x: hidden;
-    padding-top: 80px; /* Отступ под фиксированную шапку */
+    padding-top: 90px;
 }
 
-/* Общая шапка (Header) */
+/* Шапка сайта (Header) */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
-    background: rgba(11, 19, 43, 0.95);
-    backdrop-filter: blur(10px);
+    padding: 0 10%;
+    height: 80px;
+    background: rgba(11, 15, 25, 0.85);
+    backdrop-filter: blur(12px);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0, 180, 216, 0.2);
+    border-bottom: 2px solid rgba(0, 240, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #00b4d8;
+    font-size: 26px;
+    font-weight: 900;
+    color: #00f0ff;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     text-decoration: none;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
 }
 
 nav a {
-    color: #ffffff;
+    color: #a4b3c6;
     text-decoration: none;
-    margin-left: 25px;
-    transition: color 0.3s;
-    font-weight: 500;
+    margin-left: 30px;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
 nav a:hover, nav a.active {
-    color: #00b4d8;
+    color: #00f0ff;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
 }
 
-/* Кнопки */
+/* 3D-Кнопки как на GribLand (Толстые, с кликом и тенью) */
 .btn {
     display: inline-block;
-    background: #00b4d8;
+    background: linear-gradient(180deg, #00f0ff 0%, #0077b6 100%);
     color: #ffffff;
-    padding: 12px 35px;
-    font-weight: bold;
-    border-radius: 50px;
+    padding: 16px 40px;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 12px; /* Менее круглые, более стильные */
     text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+    position: relative;
     border: none;
     cursor: pointer;
+    
+    /* Объемная нижняя грань (3D эффект) */
+    box-shadow: 0 6px 0px #005f92, 0 12px 25px rgba(0, 240, 255, 0.3);
+    transition: all 0.1s ease;
 }
 
+/* Эффект при наведении */
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 180, 216, 0.5);
+    filter: brightness(1.1);
 }
 
-/* Секции */
+/* Эффект физического нажатия */
+.btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0px #005f92, 0 6px 15px rgba(0, 240, 255, 0.3);
+}
+
+/* Контейнеры и карточки */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 40px 20px;
 }
 
 .heading {
     text-align: center;
-    font-size: 36px;
-    margin-bottom: 40px;
+    font-size: 38px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
 }
 
 .heading span {
-    color: #00b4d8;
+    color: #00f0ff;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
 }
 
-/* Общий подвал (Footer) */
+/* Общий подвал */
 footer {
-    background: #080f21;
-    padding: 30px 10%;
+    background: #060911;
+    padding: 40px 10%;
     text-align: center;
-    color: #6c757d;
+    color: #4e5d73;
     font-size: 14px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 60px;
-}
-
-/* Адаптивность */
-@media (max-width: 768px) {
-    header { padding: 20px 5%; }
-    nav { display: none; } /* Скрыто для упрощения мобильной верстки */
-    .heading { font-size: 28px; }
+    border-top: 2px solid rgba(255, 255, 255, 0.03);
+    margin-top: 80px;
 }
